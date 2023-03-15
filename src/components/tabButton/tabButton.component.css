@@ -1,0 +1,22 @@
+.container-tabs {
+    margin-left: 45%;
+    margin-bottom: 5.75rem;
+    margin-top: 3rem;
+}
+.tab {
+    width: 6.125rem;
+    height: 1.938rem; 
+    border: solid 1px #d6d6d6;
+    vertical-align: middle;
+}
+.tab-left {
+    border-radius: .25rem 0 0 .25rem;
+}
+.tab-right {
+    border-radius: 0 .25rem .25rem 0;
+}
+.selected-tab {
+    border-color: #1797ff;
+    color:  #1797ff;
+    background-color: rgb(255, 255, 255);
+}
