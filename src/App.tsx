@@ -44,7 +44,7 @@ function App() {
 
   useEffect(() => {
 
-    const opt:iOption = JSON.parse(localStorage.getItem("option") || "");
+    const opt:iOption = JSON.parse(localStorage.getItem("option") || "{}");
     console.log(opt.value)
     if(opt) {
       setState({ selectedOption: opt})
