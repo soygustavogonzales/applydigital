@@ -1,24 +1,15 @@
-import React from 'react';
 import {useState, useEffect} from 'react';
 import './App.css';
 import Card from './components/card/card.component';
 import TabButton from './components/tabButton/tabButton.component';
 import { Post } from './services/post.service'
 import { iPost} from './dto/post.interface'
+import { iOption, ArrayObjectSelectState} from './dto/option.interface';
 import Select from 'react-select';
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 
 
-
-interface iOption {
-  value: string;
-  label: string;
-}
-
-interface ArrayObjectSelectState {
-  selectedOption: iOption | null;
-}
 
 const options: iOption[] = [
   { value: 'query=angular&page=0', label: 'Angular' },
@@ -136,9 +127,7 @@ function App() {
   const changePage = (e:any, page:number) => {
     const opt:iOption = JSON.parse(localStorage.getItem("option") || "{}");
     setPage(page)    
-    console.log((opt.value||'')+"&page="+page)
     if(opt.value) {
-      //setState({ selectedOption: opt})
       fetchPost(opt.value+"&page="+page)
     }else {
       fetchPost("&page="+page)
