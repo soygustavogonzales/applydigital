@@ -61,11 +61,8 @@ button {
   flex-wrap: wrap;
   justify-content: center;
 }
-.select-container {
-  width: fit-content;
-  margin-bottom: 2rem;
-  margin-left: 40%;
-}
-.centered {
-  
+
+.paginator {
+  align-items: center;
+  margin-top: 2rem;
 }

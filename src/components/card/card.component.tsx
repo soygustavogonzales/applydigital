@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import './card.component.css';
 import heartIcon from './iconmonstr-favorite-2.png';
 import heartCheckedIcon from './iconmonstr-favorite-3.svg';
 import clock from './iconmonstr-time-2.svg';
 import { iPost } from "../../dto/post.interface";
 
-function Card( props: {post: iPost, key: number}) {
+function Card( props: {post: iPost, key: number, onClickFav: any}) {
 
-    const { post: {author, created, url}} = props;
-    
+    const { post: {author, created, url, isFav}} = props;
+    const [iconSelected, setIconSelected] = useState(isFav || false);
+    //let iconSelected : Boolean = false;
+
     return (
         <>
             <div className="card">
@@ -19,8 +21,8 @@ function Card( props: {post: iPost, key: number}) {
                     </a>
                 </div>
                 <div className="icon-box">
-                    <button className="hearButn">
-                        <img src={heartIcon} alt="icon" />
+                    <button className="hearButn" onClick={ (e) => { setIconSelected(!iconSelected); props.onClickFav(e,!iconSelected) }}>
+                        <img src={ iconSelected ? heartCheckedIcon : heartIcon} alt="icon" data-post={JSON.stringify(props.post)}  data-isfav={iconSelected}/>
                     </button>
                 </div>
             </div>
